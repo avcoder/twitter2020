@@ -108,7 +108,7 @@ function displayVotes(tweet, idx) {
 
     // TODO - What object notation goes inside the template literal for 'a'?
     return `
-        <div className="poll flex-col" data-idx="${idx}">
+        <div class="poll flex-col" data-idx="${idx}">
             <button class="vote" value="a">${tweet.voteOptions.a}</button>
             <button class="vote" value="b">${tweet.voteOptions.b}</button>
             <button class="vote" value="c">${tweet.voteOptions.c}</button>
