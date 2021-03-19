@@ -26,6 +26,32 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      #inserts button:nth-child(2) {
+        animation: bump 1s 1s;
+      }
+      #inserts button:nth-child(3) {
+        animation: bump 1s 1.3s;
+      }
+      #inserts button:nth-child(4) {
+        animation: bump 1s 1.6s;
+      }
+      #inserts button:nth-child(5) {
+        animation: bump 1s 1.9s;
+      }
+
+      @keyframes bump {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.5) rotate(10deg);
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+        }
+      }
+    </style>
   </head>
 
   <body>
