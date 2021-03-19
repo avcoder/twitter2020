@@ -43,13 +43,40 @@ function selectGif(e) {
   if (!e.target.matches("img")) return;
 
   const url = e.target.dataset.original;
-  console.log(url);
 
   $("#modalgifs").modal("hide");
 
-  imgGifPoll.innerHTML = `<img src="${url}">`;
+  imgGifPoll.innerHTML = `<img src="${url}" data-is-img="true">`;
+}
+
+function isGifCreated() {
+  // is the img tag there yet, if so return true
+  const isGif = imgGifPoll.querySelector('[data-is-gif]');
+
+  return (isGif?.dataset?.isGif === "true")
+}
+
+function addGifProps(newTweet) {
+  debugger;
+  const modTweet = {
+      ...newTweet,
+      src: imgGifPoll.querySelector('img').src,
+      isGifCreated: true
+  }
+
+  return modTweet;
+}
+
+function displayGif(tweet) {
+  return `<img src="${tweet.src}">`;
 }
 
 searchGif.addEventListener("keyup", getGifs);
 switchGif.addEventListener("change", toggleGifs);
 browseGifs.addEventListener("click", selectGif);
+
+export const gif = {
+  isCreated: isGifCreated,
+  addProps: addGifProps,
+  display: displayGif
+}

@@ -6,7 +6,7 @@ function isImgCreated() {
     // is the img tag there yet, if so return true
     const isImg = imgGifPoll.querySelector('[data-is-img]');
 
-    return (isImg.dataset.isImg === "true")
+    return (isImg?.dataset?.isImg === "true")
 }
 
 function addImgProps(newTweet) {

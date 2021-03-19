@@ -1,6 +1,7 @@
 import { tweets } from "./app.js";
 import { poll } from "./tweetPoll.js";
 import { img } from "./tweetImg.js";
+import { gif } from "./tweetGifs.js";
 
 // we need to take the text that was typed in the textbox
 const textArea = document.querySelector("#tweet-area");
@@ -24,9 +25,11 @@ function tweetNew() {
     newTweet = poll.addProps(newTweet);
   } else if (img.isCreated() === true) {
     newTweet = img.addProps(newTweet);
+  } else if (gif.isCreated() === true) {
+    newTweet = gif.addProps(newTweet);
   }
 
-
+console.log(newTweet)
   // then we can insert our object into our array called tweets
   tweets.unshift(newTweet);
 
@@ -60,6 +63,7 @@ function render() {
       <p>${tweet.text}</p>
       <div class="imgGifPoll w-100">
         ${tweet.isPollCreated ? poll.display(tweet, idx) : ''}
+        ${tweet.isGifCreated ? gif.display(tweet) : ''}
         ${tweet.isImgCreated ? img.display(tweet) : ''}
       </div>
       <div>
